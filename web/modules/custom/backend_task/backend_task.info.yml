@@ -1,0 +1,15 @@
+name: "Backend task"
+type: module
+description: "Backend task"
+core_version_requirement: ^9 || ^10
+package: custom
+
+dependencies:
+  - server_general:server_general
+  - og:og
+  - default_content:default_content
+
+default_content:
+  node:
+    # Group.
+    - 14a2d67e-1c27-4bdf-aef9-039062280dd1 # Group test
