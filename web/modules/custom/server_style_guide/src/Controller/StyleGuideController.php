@@ -23,7 +23,6 @@ use Drupal\server_general\ThemeTrait\PeopleTeasersThemeTrait;
 use Drupal\server_general\ThemeTrait\QuickLinksThemeTrait;
 use Drupal\server_general\ThemeTrait\QuoteThemeTrait;
 use Drupal\server_general\ThemeTrait\SearchThemeTrait;
-use Drupal\server_general\ThemeTrait\PersonCardThemeTrait;
 use Drupal\server_general\WebformTrait;
 use Drupal\server_style_guide\ThemeTrait\StyleGuideElementWrapThemeTrait;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -49,7 +48,7 @@ class StyleGuideController extends ControllerBase {
   use SearchThemeTrait;
   use StyleGuideElementWrapThemeTrait;
   use WebformTrait;
-  use PersonCardThemeTrait;
+
 
   /**
    * The link generator service.
@@ -195,9 +194,6 @@ class StyleGuideController extends ControllerBase {
 
     $element = $this->getWebformElement();
     $build[] = $this->wrapElementNoContainer($element, 'Element: Webform');
-
-    $element = $this->getPersonCard();
-    $build[] = $this->wrapElementNoContainer($element, 'Element: Person Card');
 
     return $build;
   }
@@ -919,58 +915,6 @@ class StyleGuideController extends ControllerBase {
       $this->getWebform('contact'),
       $this->getRandomTitle(),
       $this->buildProcessedText('Decorate one package of cauliflower in six teaspoons of plain vinegar. Try flavoring the crême fraîche gingers with clammy rum and fish sauce, simmered.'),
-    );
-  }
-
-  /**
-   * Get Personal Card elements.
-   *
-   * @return array
-   *   The render array.
-   */
-  protected function getPersonCard(): array {
-    $items = [];
-
-    $names = [
-      'Jenny Ewing',
-      'Craig Griffith',
-      'Larry Bond',
-      'Flora House',
-      'Fannie Cooley',
-      'Virgil Chambers',
-    ];
-
-    $positions = [
-      'Chief Executive Officer',
-      'Chief Financial Officer',
-      'Administrative assistant',
-      'Chief Operating Officer',
-      'Human Resources Manager',
-      'Business Analyst',
-      'Chief Marketing Officer',
-      'Accountant',
-      'Marketing Manager',
-    ];
-
-    $roles = [
-      'Admin',
-      'Editor',
-      'Translator',
-    ];
-
-    foreach ($names as $name) {
-      $items[] = $this->buildElementPersonCardItem(
-        $name,
-        $this->getPlaceholderPersonImage(100),
-        $positions[rand(0, count($positions) - 1)],
-        $roles[rand(-5, count($roles) - 1)] ?? '',
-      );
-    }
-
-    return $this->buildElementPersonCardTeasers(
-      $this->getRandomTitle(),
-      $this->buildProcessedText('Person cards example'),
-      $items,
     );
   }
 

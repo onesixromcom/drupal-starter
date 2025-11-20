@@ -563,36 +563,6 @@ trait ElementWrapThemeTrait {
   }
 
   /**
-   * The Badge wrapper with text and backgound colors.
-   *
-   * @param array|string|\Drupal\Core\StringTranslation\TranslatableMarkup $element
-   *   The render array, string or a TranslatableMarkup object.
-   * @param \Drupal\server_general\ThemeTrait\Enum\TextColorEnum $color
-   *   The font color.
-   * @param \Drupal\server_general\ThemeTrait\Enum\TextColorEnum $bg_color
-   *   The bg color.
-   *
-   * @return array
-   *   Render array.
-   */
-  protected function wrapBadge(array|string|TranslatableMarkup $element, TextColorEnum $color, TextColorEnum $bg_color): array {
-    if (is_array($element)) {
-      $element = $this->filterEmptyElements($element);
-    }
-    if (empty($element)) {
-      // Element is empty, so no need to wrap it.
-      return [];
-    }
-
-    return [
-      '#theme' => 'server_theme_badge',
-      '#text_color' => $color->value,
-      '#bg_color' => $bg_color->value,
-      '#element' => $element,
-    ];
-  }
-
-  /**
    * Remove nested empty arrays.
    *
    * If the element is an array of arrays, we'd like to remove empty ones.
