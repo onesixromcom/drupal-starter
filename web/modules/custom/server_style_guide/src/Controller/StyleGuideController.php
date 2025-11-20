@@ -938,6 +938,10 @@ class StyleGuideController extends ControllerBase {
       'Flora House',
       'Fannie Cooley',
       'Virgil Chambers',
+      'Jana Stout',
+      'Burton Mcfarland',
+      'Angelique Mckenzie',
+      'Gregg Mejia',
     ];
 
     $positions = [
