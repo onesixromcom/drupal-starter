@@ -15,10 +15,6 @@ use Drupal\server_general\ThemeTrait\Enum\PersonCardButtonEnum;
  */
 trait PersonCardThemeTrait {
 
-  // Use ElementLayoutThemeTrait;
-  // use ElementWrapThemeTrait;.
-  use CardThemeTrait;
-
   /**
    * Build People cards element.
    *
@@ -37,8 +33,43 @@ trait PersonCardThemeTrait {
     return $this->buildElementLayoutTitleBodyAndItems(
       $title,
       $body,
-      $this->buildCards($items),
+      $this->buildPersonsCards($items),
     );
+  }
+
+  /**
+   * Wrap multiple cards with a grid.
+   *
+   * @param array $items
+   *   The elements as render array.
+   *
+   * @return array
+   *   Render array.
+   */
+  protected function buildPersonsCards(array $items): array {
+    return [
+      '#theme' => 'server_theme_persons_cards',
+      '#items' => $items,
+    ];
+  }
+
+  /**
+   * Build "Centered card" layout with buttons at the bottom.
+   *
+   * @param array $items
+   *   The elements as render array.
+   * @param array $buttons
+   *   The elements as render array.
+   *
+   * @return array
+   *   Render array.
+   */
+  protected function buildInnerCardsLayoutWithButtons(array $items, array $buttons): array {
+    return [
+      '#theme' => 'server_theme_inner_cards_layout__with_buttons',
+      '#items' => $this->wrapContainerVerticalSpacing($items, AlignmentEnum::Center),
+      '#buttons' => $buttons,
+    ];
   }
 
   /**

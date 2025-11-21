@@ -531,6 +531,14 @@ function server_theme_theme() {
     'variables' => [],
   ];
 
+  // Multiple persons cards.
+  $info['server_theme_persons_cards'] = [
+    'variables' => [
+      // A list of person cards.
+      'items' => [],
+    ],
+  ];
+
   // The "Person card buttons" element.
   $info['server_theme_element__person_card_buttons'] = [
     'variables' => [
