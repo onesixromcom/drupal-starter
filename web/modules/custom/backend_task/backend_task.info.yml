@@ -1,0 +1,9 @@
+name: "Backend task"
+type: module
+description: "Backend task"
+core_version_requirement: ^9 || ^10
+package: custom
+
+dependencies:
+  - server_general:server_general
+  - og:og

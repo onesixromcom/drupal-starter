@@ -11,4 +11,6 @@ enum TextColorEnum: string {
   case DarkGray = 'dark-gray';
   case Gray = 'gray';
   case LightGray = 'light-gray';
+  case LightGreen = 'light-green';
+  case DarkGreen = 'dark-green';
 }
