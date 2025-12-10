@@ -511,6 +511,14 @@ function server_theme_theme() {
     'variables' => [],
   ];
 
+  $info['server_theme_user_greeting'] = [
+    'variables' => [
+      'name' => '',
+      'link' => '',
+      'label' => '',
+    ],
+  ];
+
   return $info;
 }
 
